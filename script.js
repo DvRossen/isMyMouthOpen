@@ -62,27 +62,27 @@ function generateLandmarks() {
 // toon de eerste 20 waarden in een log
 //
 function logData(detections) {
-  let str = "";
+  let str = "your mouth is ";
 
   if (
     detections[0].landmarks.positions[67]._y -
       detections[0].landmarks.positions[63]._y <
     10
   ) {
-    str += "Your mouth is closed, you are NOT pogging ";
+    str += "closed";
   } else {
-    str += "POG ! ! ! ";
+    str += "open";
   }
 
-  str +=
-    detections[0].landmarks.positions[67]._y +
-    " and " +
-    detections[0].landmarks.positions[63]._y;
-  +" ";
-  console.log(
-    detections[0].landmarks.positions[67]._y -
-      detections[0].landmarks.positions[63]._y
-  );
+  // str +=
+  //   detections[0].landmarks.positions[67]._y +
+  //   " and " +
+  //   detections[0].landmarks.positions[63]._y;
+  // +" ";
+  // console.log(
+  //   detections[0].landmarks.positions[67]._y -
+  //     detections[0].landmarks.positions[63]._y
+  // );
   //   for (let i = 56; i < 58; i++) {
   //     str +=
   //       detections[0].landmarks.positions[i]._x +
