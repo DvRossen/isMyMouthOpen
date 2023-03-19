@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: sans-serif;
+    background-color: #8d84ef;
+    overflow: hidden;
+    /* centered column with flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.text {
+    
+    color:rgb(44, 44, 44);
+    font-family: monospace;
+    min-height:20px;
+    width:500px;
+    text-align: center;
+}
+div {
+    background-color: rgb(36, 32, 65);
+    color: white;
+    font-family: monospace;
+    min-height: 20px;
+    width: 720px;
+    margin-top:10vh;
+}
+
+.video-wrapper {
+    width: 720px;
+    height: 405px;
+}
+
+video {
+    position: fixed;
+}
+
+canvas {
+    position: fixed;
+}
