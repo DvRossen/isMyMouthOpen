@@ -12,14 +12,6 @@ body {
     align-items: center;
     justify-content: flex-start;
 }
-.text {
-    
-    color:rgb(44, 44, 44);
-    font-family: monospace;
-    min-height:20px;
-    width:500px;
-    text-align: center;
-}
 div {
     background-color: rgb(36, 32, 65);
     color: white;

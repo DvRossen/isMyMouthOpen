@@ -28,9 +28,8 @@ async function setupCamera() {
   console.log(video.height);
 }
 
-//
 // start face api
-//
+
 function generateLandmarks() {
   const canvas = faceapi.createCanvasFromMedia(video);
   const videoElement = document.querySelector(".video-wrapper");
@@ -44,13 +43,13 @@ function generateLandmarks() {
       .withFaceLandmarks();
 
     if (detections[0]?.landmarks) {
-      // toon de hele array in een log. gebruik deze data voor KNN
+      // Detect points and put these in array
       logData(detections);
     } else {
       console.log("No face found");
     }
 
-    // toon de face detection op de webcam
+    //Show the face detection op de webcam
     const resizedDetections = faceapi.resizeResults(detections, displaySize);
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
     faceapi.draw.drawDetections(canvas, resizedDetections);
@@ -58,9 +57,7 @@ function generateLandmarks() {
   }, 1000 * 4);
 }
 
-//
-// toon de eerste 20 waarden in een log
-//
+//Detect lower part of upper lip and upper part of lower lip
 function logData(detections) {
   let str = "your mouth is ";
 
@@ -73,7 +70,7 @@ function logData(detections) {
   } else {
     str += "open";
   }
-
+  log.innerText = str;
   // str +=
   //   detections[0].landmarks.positions[67]._y +
   //   " and " +
@@ -90,18 +87,13 @@ function logData(detections) {
   //       detections[0].landmarks.positions[i]._y +
   //       ", ";
   //   }
-
   // example : finding the eye position manually
-
   // example : use functions to get the eyes
   //const leftEye = detections[0].landmarks.getLeftEye()
   //const rightEye = detections[0].landmarks.getRightEye()
-  log.innerText = str;
 }
 
-//
 // START - load the FACE API models - after loading init the app
-//
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri("./models"),
   faceapi.nets.faceLandmark68Net.loadFromUri("./models"),
